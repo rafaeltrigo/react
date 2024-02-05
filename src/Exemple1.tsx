@@ -9,7 +9,7 @@ const lastName: string = "Trigo"
 function Fullname() {
   return name + ' ' + lastName
 }
-
+// Function Pegar data
 function date() {
   return (
     <div>
@@ -19,6 +19,32 @@ function date() {
       <p>Complete Date :{new Date().toLocaleString()}</p>
     </div>
   )
+}
+// array
+function List(){
+  const fruits = ["apple", "orange", "banana", "coconut", "pineapple"]
+  const listItens = fruits.map(fruta=><li>{fruta}</li>)
+  return <ol>{listItens}</ol>
+}
+// Function with parameter
+function ShowContent(valor:number){
+  const show:number = valor *5
+    return show
+
+}
+// Função Objetos
+function ListObject({ filterById }){
+  const people:any = [
+    {id:1,name:"Rafael",age:42},
+    {id:2,name:"Eliete",age:45},
+    {id:3,name:"Gabriella",age:13}
+  ]
+  const filteredPeople:any = filterById !== 0 ? people.filter(e => e.id === filterById) : people;
+
+  const peopleList:any = filteredPeople.map(e=>
+    // o Key é a chave unica necessaria
+  <li key={e.id1}> {e.name}- {e.age} anos</li>)
+  return <ol>{peopleList}</ol>
 }
 // Estilo do Button
 const styles = {
@@ -34,7 +60,7 @@ const styles = {
 }
 
 // Função Principal
-export default function Header() {
+export default function Example1() {
 
   return (
 
@@ -47,7 +73,21 @@ export default function Header() {
       <p>{date()}</p>
       <hr></hr>
       <button style={styles} type="button">Click here</button>
+      <hr></hr>
+      <i>Exemplo de Array</i>
+      <div>{List()}</div>
+      <hr></hr>
+      <i>Chamando uma funcao com parametro</i>
+      <div>Resultado :{ShowContent(5)}</div>
+      <hr></hr>
+      <h2>Lista de Pessoas</h2>
+      <ListObject filterById={0} />
+       <h2>Lista de Pessoas com ID 2</h2>
+      {/* Filtrar por ID 2 */}
+      <ListObject filterById={3} />
+
 
     </div>
   );
+
 }

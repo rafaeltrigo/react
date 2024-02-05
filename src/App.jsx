@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './Head';
+import Exemple1 from './Exemple1';
 function App() {
 
   return (
     <div>
-      <Header/>
+      <Exemple1/>
       </div>
   )
 }
